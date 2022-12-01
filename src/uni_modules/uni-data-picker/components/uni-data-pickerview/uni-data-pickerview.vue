@@ -2,9 +2,10 @@
   <view class="uni-data-pickerview">
     <scroll-view v-if="!isCloudDataList" class="selected-area" scroll-x="true">
       <view class="selected-list">
-        <template v-for="(item,index) in selected">
+        <template v-for="(item, index) in selected">
           <view class="selected-item"
-            :class="{'selected-item-active':index==selectedIndex}"
+            :key="index"
+            :class="{ 'selected-item-active' :index == selectedIndex }"
             v-if="item.text" @click="handleSelect(index)">
             <text>{{item.text}}</text>
           </view>
@@ -14,7 +15,7 @@
     <view class="tab-c">
       <template v-for="(child, i) in dataList">
         <scroll-view class="list" :key="i" v-if="i==selectedIndex" :scroll-y="true">
-          <view class="item" :class="{'is-disabled': !!item.disable}" v-for="(item, j) in child"
+          <view class="item" :class="{'is-disabled': !!item.disable}" v-for="(item, j) in child" :key="j"
             @click="handleNodeClick(item, i, j)">
             <text class="item-text">{{item[map.text]}}</text>
             <view class="check" v-if="selected.length > i && item[map.value] == selected[i].value"></view>
@@ -55,6 +56,7 @@
     emits: ['nodeclick', 'change', 'datachange', 'update:modelValue'],
     mixins: [dataPicker],
     props: {
+      // 暂时无用
       managedMode: {
         type: Boolean,
         default: false

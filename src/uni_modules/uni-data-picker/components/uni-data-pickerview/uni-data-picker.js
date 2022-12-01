@@ -12,6 +12,7 @@ export default {
         return {}
       }
     },
+    // 表名。支持输入多个表名，用 , 分割
     collection: {
       type: String,
       default: ''
@@ -128,6 +129,7 @@ export default {
     isCloudData() {
       return this.collection.length > 0;
     },
+    //
     isCloudDataList() {
       return (this.isCloudData && (!this.parentField && !this.selfField));
     },
@@ -206,6 +208,7 @@ export default {
       this._extractTree(this.localdata, this._treeData);
 
       let inputValue = this.dataValue;
+
       if (inputValue === undefined) {
         return;
       }
@@ -218,6 +221,8 @@ export default {
       }
 
       this.selected = this._findNodePath(inputValue, this.localdata);
+
+      this._updateBindData();
     },
 
     // 加载 Cloud 数据 (单列)
@@ -473,6 +478,7 @@ export default {
       return whereField;
     },
 
+    // 加载 Cloud 数据 (单列)
     _updateBindData(node) {
       const {
         dataList,
@@ -519,6 +525,7 @@ export default {
       }
     },
 
+    // 加载 Cloud 数据 (单列) 过滤数据
     _filterData(data, paths) {
       let dataList = []
       let hasNodes = true
@@ -590,8 +597,7 @@ export default {
     },
 
     _findNodePath(key, nodes, path = []) {
-      let textField = this.map.text
-      let valueField = this.map.value
+      const { text: textField, value: valueField } = this.map;
       for (let i = 0; i < nodes.length; i++) {
         let node = nodes[i]
         let children = node.children

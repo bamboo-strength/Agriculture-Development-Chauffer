@@ -23,13 +23,23 @@
   }, {
     "path": "pages/dashboard/Dashboard",
     "style": {
-      "navigationBarTextStyle": "white",
+      "navigationBarTextStyle": "black",
       "app-plus": {
         "titleNView": {
           "titleText": "首页（司机端）",
-          "titleColor": "#FFF",
-          "backgroundColor": "#4581f5"
+          "titleColor": "#4581f5",
+          "backgroundColor": "#FFF"
         }
+      }
+    }
+  }, {
+    "path": "pages/trucking/Order",
+    "style": {
+      "navigationBarTextStyle": "black",
+      "navigationBarBackgroundColor": "#FFF",
+      "app-plus": {
+        "animationType": "fade-in",
+        "titleNView": false
       }
     }
   }, {

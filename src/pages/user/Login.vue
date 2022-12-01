@@ -76,6 +76,8 @@
               }
 
               uni.setStorageSync('token', form.loginName);
+              uni.setStorageSync('userBaseEntity', params.entity);
+              uni.setStorageSync('vehicleNo', params.entity.vehicleNo);
               uni.showToast({
                 icon: 'success',
                 title: '登录成功！',

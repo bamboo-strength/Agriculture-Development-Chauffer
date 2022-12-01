@@ -9,9 +9,9 @@
           </view>
           <scroll-view v-else-if="inputSelected.length" class="selected-area" scroll-x="true">
             <view class="selected-list">
-              <view class="selected-item" v-for="(item,index) in inputSelected" :key="index">
-                <text class="text-color">{{item.text}}</text><text v-if="index<inputSelected.length-1"
-                  class="input-split-line">{{split}}</text>
+              <view class="selected-item" v-for="(item, index) in inputSelected" :key="index">
+                <text class="text-color">{{item.text}}</text>
+                <text v-if="index < inputSelected.length-1" class="input-split-line">{{split}}</text>
               </view>
             </view>
           </scroll-view>
@@ -133,7 +133,8 @@
     },
     methods: {
       clear() {
-        this.modelValue = null;
+        // this.modelValue = null;
+        this.inputSelected = [];
         this._dispatchEvent([]);
       },
       onPropsChange() {
@@ -265,6 +266,7 @@
         } else {
           item.value = ''
         }
+        console.log(this.formItem);
         if (this.formItem) {
           this.formItem.setValue(item.value)
         }

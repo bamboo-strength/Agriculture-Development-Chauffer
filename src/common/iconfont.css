@@ -1,6 +1,6 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3797424 */
-  src: url('@/static/iconfont.ttf?t=1669815840204') format('truetype');
+  src: url('@/static/iconfont.ttf?t=1669902502586') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-order:before {
+  content: "\e645";
 }
 
 .icon-trucking-order:before {
@@ -26,4 +30,3 @@
 .icon-copyright:before {
   content: "\e77e";
 }
-
